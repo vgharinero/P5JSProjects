@@ -70,8 +70,6 @@ function keyPressed()
                 snake.direction = 3
             }
             break
-        case ' ':
-            start = true
     }
 }
 
