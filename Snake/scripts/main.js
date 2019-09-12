@@ -40,6 +40,13 @@ function draw()
         difficulty += 0.1
     }
 
+    if (snake.restart)
+    {
+        snake.setup()        
+        isFood = false
+        difficulty = 0
+    }
+
 }
 
 function keyPressed()
@@ -98,10 +105,4 @@ function inSnake(new_point)
         }
     )
     return isIn
-}
-
-function restart()
-{
-    isFood = false
-    difficulty = 0
 }

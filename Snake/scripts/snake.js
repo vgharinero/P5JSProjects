@@ -50,53 +50,46 @@ function Snake(main)
                 }
             }
         )
-
-        if (this.restart)
-        {
-            this.setup()
-            main.restart()
-        } 
-        else
-        {
-            this.history.push(new_point)
-
-            strokeWeight(3)
-            stroke(51)
-            fill('white')
-            rect(this.X, this.Y, 40, 40)
-
-            for (let i = 1; i < this.body_length; i++)
-            {
-                rect(this.history[this.history.length - i - 1].X, this.history[this.history.length - i - 1].Y, 40, 40)
-            }
-
-            noStroke()
-            fill('black')
-            switch (this.direction)
-            {
-                case 0:
-                    rect(this.X + 8, this.Y + 10, 6, 6)
-                    rect(this.X + 26, this.Y + 10, 6, 6)
-                    break
-                case 1:
-                    rect(this.X + 8, this.Y + 24, 6, 6)
-                    rect(this.X + 26, this.Y + 24, 6, 6)
-                    break
-                case 2:
-                    rect(this.X + 10, this.Y + 8, 6, 6)
-                    rect(this.X + 10, this.Y + 26, 6, 6)
-                    break
-                case 3:
-                    rect(this.X + 24, this.Y + 8, 6, 6)
-                    rect(this.X + 24, this.Y + 26, 6, 6)
-                    break
-            }
     
-            while (this.history.length > this.body_length)
-            {
-                this.history.shift()
-            }
+        this.history.push(new_point)
+
+        strokeWeight(3)
+        stroke(51)
+        fill('white')
+        rect(this.X, this.Y, 40, 40)
+
+        for (let i = 1; i < this.body_length; i++)
+        {
+            rect(this.history[this.history.length - i - 1].X, this.history[this.history.length - i - 1].Y, 40, 40)
         }
+
+        noStroke()
+        fill('black')
+        switch (this.direction)
+        {
+            case 0:
+                rect(this.X + 8, this.Y + 10, 6, 6)
+                rect(this.X + 26, this.Y + 10, 6, 6)
+                break
+            case 1:
+                rect(this.X + 8, this.Y + 24, 6, 6)
+                rect(this.X + 26, this.Y + 24, 6, 6)
+                break
+            case 2:
+                rect(this.X + 10, this.Y + 8, 6, 6)
+                rect(this.X + 10, this.Y + 26, 6, 6)
+                break
+            case 3:
+                rect(this.X + 24, this.Y + 8, 6, 6)
+                rect(this.X + 24, this.Y + 26, 6, 6)
+                break
+        }
+
+        while (this.history.length > this.body_length)
+        {
+            this.history.shift()
+        }
+        
     }
 
     this.update = function()
