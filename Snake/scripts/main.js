@@ -10,8 +10,14 @@ function setup()
 
     createCanvas(800, 800)
 
-    snake = new Snake(this)
+    snake = new Snake()
     snake.setup()
+
+    let b = new AStar({X: 0, Y: 0}, {X: 4, Y: 3})
+    let lastNode = b.find()
+    for(let node = lastNode; node != null; node = node.parent) {
+        console.log(node)
+    }
 }   
 
 function draw()

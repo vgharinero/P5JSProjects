@@ -1,4 +1,4 @@
-function Snake(main) 
+function Snake() 
 {
 
     this.restart
