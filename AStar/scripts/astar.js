@@ -25,7 +25,6 @@ function AStar(start, target, map)
             openList.sort((a, b) => a.h - b.h)
 
             this.currentNode = openList.shift()
-            console.log(this.currentNode)
 
             if (this.currentNode.X == target.X && this.currentNode.Y == target.Y) {
                 break
@@ -36,25 +35,7 @@ function AStar(start, target, map)
             successors.forEach(node => {
                 let open = openList.filter(n => n.X == node.X && n.Y == node.Y)
                 let closed = closedList.filter(n => n.X == node.X && n.Y == node.Y)
-                if (open.length != 0)
-                {
-                    if (open[0].g < node.g)
-                    {
-                        return
-                    }
-                }
-                else if (closed.length != 0)
-                {
-                    if (closed[0].g < node.g)
-                    {
-                        return
-                    }
-                    else
-                    {
-                        closedList = closedList.filter(node => node.X == closed[0].X && node.Y == closed[0].Y)
-                    }
-                }
-                else
+                if (closed.length == 0 && open.length == 0)
                 {
                     openList.push(node)
                 }

@@ -1,0 +1,40 @@
+PoblacionVirtual;Diana;22;36
+1;no;2019-05-25;75;MACHO;30.0;NO+;X;YM
+1;raton2;2019-01-01;50;MACHO;37.0535030798292;Es un raton macho virtualmente creado;X;Y
+2;raton3;2019-09-17;75;MACHO;37.14375085937825;Es un raton macho virtualmente creado;X;YM
+3;raton4;2019-06-01;52;MACHO;36.189321088399026;Es un raton macho virtualmente creado;X;YM
+4;raton5;2019-10-20;92;MACHO;37.372754687139874;Es un raton macho virtualmente creado;X;Y
+5;raton1;2019-09-05;69;HEMBRA;36.437389730735916;Es un raton hembra virtualmente creado;X;XM
+6;raton2;2019-10-31;62;HEMBRA;36.84383666691054;Es un raton hembra virtualmente creado;X;X
+7;raton3;2019-03-09;90;HEMBRA;37.69222167184511;Es un raton hembra virtualmente creado;XM;X
+8;raton4;2019-08-08;70;HEMBRA;36.058322744142295;Es un raton hembra virtualmente creado;X;X
+9;raton5;2019-10-08;86;HEMBRA;36.165924390838114;Es un raton hembra virtualmente creado;XM;X
+10;lsrvmo;2019-12-09;70;HEMBRA;36.64493044836018;Cria de padre(1) y madre(5);X;X
+11;izgrae;2019-12-09;61;HEMBRA;36.29061212076732;Cria de padre(1) y madre(5);X;X
+12;zgml;2019-12-09;61;HEMBRA;37.71603797233877;Cria de padre(1) y madre(6);XM;X
+13;aixt;2019-12-09;75;HEMBRA;37.57849169689569;Cria de padre(1) y madre(6);X;X
+14;yjwtfpjplp;2019-12-09;76;HEMBRA;37.072108548539745;Cria de padre(1) y madre(6);X;X
+15;lxnffdr;2019-12-09;95;HEMBRA;37.505389706699304;Cria de padre(1) y madre(7);X;X
+16;czgnz;2019-12-09;80;HEMBRA;36.2284997522456;Cria de padre(1) y madre(7);X;X
+17;wmwauuaq;2019-12-09;75;HEMBRA;36.428107555193634;Cria de padre(1) y madre(7);XM;X
+18;qjhrgb;2019-12-09;69;HEMBRA;36.090081276031405;Cria de padre(1) y madre(7);XM;X
+19;cmrwey;2019-12-09;83;HEMBRA;37.07660870508854;Cria de padre(1) y madre(7);X;X
+20;ppyggcj;2019-12-09;54;HEMBRA;37.9542096663749;Cria de padre(1) y madre(7);X;X
+21;lbujjntiyu;2019-12-09;75;HEMBRA;37.080063198994274;Cria de padre(1) y madre(7);X;X
+22;phej;2019-12-09;73;HEMBRA;37.489629045742525;Cria de padre(1) y madre(7);X;XM
+23;bpgume;2019-12-09;87;HEMBRA;37.310869534612934;Cria de padre(1) y madre(8);XM;X
+24;stzyzgw;2019-12-09;59;HEMBRA;37.49920438875477;Cria de padre(1) y madre(8);X;XM
+25;nlzkmmyy;2019-12-09;93;HEMBRA;37.05752717438437;Cria de padre(1) y madre(8);X;X
+26;zbcyst;2019-12-09;51;HEMBRA;36.024681252054386;Cria de padre(1) y madre(8);X;XM
+27;gfumfy;2019-12-09;68;HEMBRA;36.42480938682446;Cria de padre(1) y madre(8);X;X
+28;nbhxhcfv;2019-12-09;66;HEMBRA;37.46235489791386;Cria de padre(1) y madre(8);X;XM
+29;ckvxfwq;2019-12-09;80;HEMBRA;36.59909321002751;Cria de padre(2) y madre(9);X;X
+30;gtbvbmxt;2019-12-09;75;HEMBRA;36.272223975645666;Cria de padre(2) y madre(9);XM;X
+31;mfvh;2019-12-09;98;HEMBRA;37.833439522333016;Cria de padre(2) y madre(9);XM;X
+32;sznoh;2019-12-09;55;HEMBRA;37.301348576618544;Cria de padre(2) y madre(9);XM;X
+33;htrkfqbut;2019-12-09;85;HEMBRA;36.020858524286254;Cria de padre(2) y madre(9);X;X
+34;rxcosfi;2019-12-09;80;HEMBRA;37.63333974629045;Cria de padre(2) y madre(9);X;XM
+35;mfvkcsez;2019-12-09;55;HEMBRA;37.41455498281868;Cria de padre(2) y madre(9);X;X
+1;5,6,7;10,11,12,13,14,15,16,17,18,19,20,21,22
+1;8;23,24,25,26,27,28
+2;9;29,30,31,32,33,34,35
