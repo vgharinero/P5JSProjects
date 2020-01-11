@@ -5,6 +5,7 @@ let foodPosition
 
 let difficulty = 0
 
+
 function setup()
 {
 
@@ -12,12 +13,6 @@ function setup()
 
     snake = new Snake()
     snake.setup()
-
-    let b = new AStar({X: 0, Y: 0}, {X: 4, Y: 3})
-    let lastNode = b.find()
-    for(let node = lastNode; node != null; node = node.parent) {
-        console.log(node)
-    }
 }   
 
 function draw()
