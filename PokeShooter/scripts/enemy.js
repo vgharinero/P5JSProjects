@@ -1,9 +1,11 @@
 class Enemy {
 
-    constructor(index, type, x, y) {
+    constructor(index, x, y) {
+        this.name = ENEMIES_INFO[index].name
+
         this.img = createImg('sprites/enemy' + index + '.gif', 'enemy')
 
-        this.type = type
+        this.type = ENEMIES_INFO[index].type
 
         this.speed = ENEMY_SPEED
 
@@ -12,7 +14,7 @@ class Enemy {
         
         locateImage(this.img, this.x, this.y)
 
-        this.attack = ENEMIES_ATTACK[index]
+        this.attack = ENEMIES_INFO[index].attack
 
         this.dead = false
         this.destroyed = false
@@ -31,6 +33,23 @@ class Enemy {
 
 }
 
-const ENEMIES_ATTACK = [
-    15 // BUTTERFREE
+const ENEMIES_INFO = [
+    {
+        name: 'Caterpie',
+        type: Type.BUG,
+        attack: 5,
+        evolution: 0
+    },
+    {
+        name: 'Metapod',
+        type: Type.BUG,
+        attack: 10,
+        evolution: 1
+    },
+    {
+        name: 'Butterfree',
+        type: Type.BUG,
+        attack: 15,
+        evolution: 2
+    }
 ]

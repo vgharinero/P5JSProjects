@@ -6,14 +6,26 @@ const PLAYER_SPEED = 8
 const ENEMY_SPEED = 3
 const BULLET_SPEED = 10
 
-const ENEMY_RATE = 20
+const ENEMY_RATE = 100
 
 const TYPE_TABLE = [
     // GRASS  -  WATER  -  FIRE  -  BUG
     [    0,        1,       0,       0], // GRASS
     [    0,        0,       1,       0], // WATER
-    [    1,        0,       0,       1]  // FIRE
+    [    1,        0,       0,       1],  // FIRE
+    [    1,        0,       0,       0]  // BUG
 ]
+
+const SoundsSrc =
+{
+    PLAYER_HURT: 'sounds/player_hurt.wav',
+    GRASS_ATTACK: 'sounds/grass_attack.wav',
+    WATER_ATTACK: 'sounds/water_attack.wav',
+    FIRE_ATTACK: 'sounds/fire_attack.wav',
+    ENEMY_HURT: 'sounds/enemy_hurt.wav'
+}
+
+const Sounds = {}
 
 const Type = 
 {
@@ -38,6 +50,10 @@ function windowResized()
 
 function setup() 
 {
+    for (let key in SoundsSrc)
+    {
+        Sounds[key] = loadSound(SoundsSrc[key])
+    }
     createCanvas(innerWidth, innerHeight)
 }
 
@@ -66,6 +82,14 @@ function drawGame()
 
         locateImage(players[playerIndex].img, players[playerIndex].x, players[playerIndex].y)
         locateImage(players[playerIndex].hpBar, players[playerIndex].x, players[playerIndex].y - players[playerIndex].img.height/2 - 12)
+        if (players[playerIndex].hitEffect)
+        {
+            locateImage(players[playerIndex].hitEffect, players[playerIndex].x, players[playerIndex].y)
+        }
+        if (players[playerIndex].levelUpEffect)
+        {
+            locateImage(players[playerIndex].levelUpEffect, players[playerIndex].x, players[playerIndex].y)
+        }
     }
 
     enemies.forEach((enemy, i) =>
@@ -79,7 +103,21 @@ function drawGame()
         }
         if (enemy.destroyed)
         {
-            players[playerIndex].hp -= enemy.attack
+            players[playerIndex].hp -= enemy.attack * (1 + 1 * (TYPE_TABLE[enemy.type][players[playerIndex].type]))
+
+            document.body.classList.add('shaking')
+            setTimeout(function() {
+                document.body.classList.remove('shaking')
+            }, 300)
+
+            Sounds.PLAYER_HURT.play()
+            players[playerIndex].hitEffect = createImg('sprites/playerHit.gif', 'hit')
+            players[playerIndex].hitEffect.size(48, 48)
+            locateImage(players[playerIndex].hitEffect, players[playerIndex].x, players[playerIndex].y)
+            setTimeout(function() {
+                players[playerIndex].hitEffect.remove()
+            }, 400)
+
             enemy.img.remove()
             enemies.splice(i, 1)
         }
@@ -98,12 +136,27 @@ function drawGame()
         {
             if (bullet.collide(enemy))
             {
+                Sounds.ENEMY_HURT.play()
+                let hitEffect = createImg('sprites/hit' + players[playerIndex].type + '.gif', 'hit')
+                locateImage(hitEffect, enemy.x, enemy.y)
+                setTimeout(function() {
+                    hitEffect.remove()
+                }, 400)
+
                 bullet.destroyed = true
                 enemy.dead = true
+
                 players[playerIndex].experience += 10
                 let nextLevel = (4 * (players[playerIndex].level + 1) ** 3)/5
+
                 if (players[playerIndex].experience > nextLevel) 
                 {
+                    players[playerIndex].levelUpEffect = createImg('sprites/levelUp.gif', 'hit')
+                    players[playerIndex].levelUpEffect.size(48, 48)
+                    locateImage(players[playerIndex].levelUpEffect, players[playerIndex].x, players[playerIndex].y)
+                    setTimeout(function() {
+                        players[playerIndex].levelUpEffect.remove()
+                    }, 700)
                     players[playerIndex].level += 1
                 }
             }
@@ -125,6 +178,7 @@ function setUpGame()
     players.push(new Player('sprites/charmander.gif', Type.FIRE, PADDING, height/2, 125, 'Charmander'))
 
     players[playerIndex].img = createImg(players[playerIndex].sprite, 'player_sprite')
+    players[playerIndex].setHPBar()
 
     document.getElementById('main_menu').style.visibility = 'hidden'
     playing = true
@@ -148,22 +202,18 @@ function changePlayer()
 
 function shoot()
 {
+    Sounds[Object.keys(Type)[players[playerIndex].type] + '_ATTACK'].play()
     bullets.push(new Bullet(players[playerIndex].type, players[playerIndex].x + FIRE_POINT, players[playerIndex].y))
 }
 
 function generateEnemy()
 {
-    enemies.push(new Enemy(0, Type.BUG, width + PADDING, random(PADDING, height - PADDING)))
+    enemies.push(new Enemy(floor(random() * 3), width + PADDING, random(PADDING, height - PADDING)))
 }
 
 function locateImage(image, x, y) 
 {
     image.position((window.innerWidth - width) / 2 + (x - image.width / 2), (window.innerHeight - height) / 2 + (y - image.height / 2))
-}
-
-function mouseClicked()
-{
-
 }
 
 function keyPressed()

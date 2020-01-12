@@ -15,10 +15,12 @@ class Player {
 
         this.x = x
         this.y = y
-x
-        this.setHPBar()
+
         this.maxHP = hp
         this.hp = hp
+
+        this.hitEffect = ''
+        this.levelUpEffect = ''
     }
 
     setHPBar()
